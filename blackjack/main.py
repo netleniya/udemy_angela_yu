@@ -52,12 +52,20 @@ def main():
             player_score, dealer_score = calculate_score(
                 player_cards, dealer_cards, deck=card_dict)
 
+            if player_score == 21 and dealer_score != 21:
+                print("You win")
+                continue
+
+            if player_score == dealer_score:
+                print("It's a tie. That means you lose")
+                continue
+
             if 'A' in player_cards and '10' in player_cards:
                 print("Blackjack. You win:", player_cards)
-                break
+                continue
             elif 'A' in dealer_cards and '10' in dealer_cards:
                 print(f"Computer has Blackjack: {dealer_cards}. You lose.")
-                break
+                continue
 
             if player_score < 21:
                 one_more = input(
