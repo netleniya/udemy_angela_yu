@@ -1,10 +1,10 @@
 from art import logo
+import os
 import random
 
 
 def draw_two(player, computer, deck):
-    """draw two cards each for the player and dealer. show all player's cards, and only one dealer card
-    """
+    """Draw two cards each for the player and dealer."""
     def deal_card(deck):
         return random.choice(list(deck))
 
@@ -17,11 +17,9 @@ def draw_one_more(deck):
     return random.choice(list(deck))
 
 
-def calculate_score(player, dealer, deck):
-    player_score = sum([deck.get(i) for i in player])
-    dealer_score = sum([deck.get(i) for i in dealer])
-
-    return player_score, dealer_score
+def calculate_score(card_list, deck):
+    score = sum([deck.get(i) for i in card_list])
+    return score
 
 
 def main():
@@ -49,8 +47,8 @@ def main():
             print("Your cards: ", player_cards)
             print("Computer's first card: ", [dealer_cards[0]])
 
-            player_score, dealer_score = calculate_score(
-                player_cards, dealer_cards, deck=card_dict)
+            player_score = calculate_score(player_cards, deck=card_dict)
+            dealer_score = calculate_score(dealer_cards, deck=card_dict)
 
             if player_score == 21 and dealer_score != 21:
                 print("You win")
@@ -72,15 +70,13 @@ def main():
                     "Do you want to draw one more card? (y/n): ").lower()
 
                 if one_more.startswith('y'):
-                    additional_card = draw_one_more(deck=card_dict)
-                    player_cards.append(additional_card)
+                    player_cards.append(draw_one_more(deck=card_dict))
 
             if dealer_score < 17:
-                dealer_draws = draw_one_more(deck=card_dict)
-                dealer_cards.append(dealer_draws)
+                dealer_cards.append(draw_one_more(deck=card_dict))
 
-            player_score, dealer_score = calculate_score(
-                player_cards, dealer_cards, deck=card_dict)
+            player_score = calculate_score(player_cards, deck=card_dict)
+            dealer_score = calculate_score(dealer_cards, deck=card_dict)
 
             print("Player Cards", player_cards)
             print("Dealer Cards", dealer_cards)
