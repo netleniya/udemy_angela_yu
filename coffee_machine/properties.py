@@ -32,7 +32,6 @@ resources = {
 }
 
 coins = {
-    "pennies": 0.01,
     "nickles": 0.05,
     "dimes": 0.10,
     "quarters": 0.25
