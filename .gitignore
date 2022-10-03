@@ -3,3 +3,5 @@
 coffee_machine/Coffee+Machine+Program+Requirements.pdf
 coffee_machine/__pycache__/menu.cpython-310.pyc
 coffee_machine/__pycache__/brewer.cpython-310.pyc
+.DS_Store
+auction/__pycache__/art.cpython-310.pyc
