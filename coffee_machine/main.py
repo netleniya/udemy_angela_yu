@@ -1,15 +1,32 @@
 from menu import beverage, resources
 
+
+def report():
+    for key, item in resources.items():
+        print(f"{key.capitalize()}: {item}")
+
+
 def get_drink() -> str:
-    prompt = input("What would you like? (cappuccino/espresso/latte): ").lower()
+    choice = input("What would you like? (cappuccino/espresso/latte): ").lower()
 
-    if prompt == 'q':
-        print("Goodbye!")
-        return None
-    elif prompt in beverage.keys():
-        return prompt
-    else:
-        print(f"Sorry. {prompt.capitalize()} not available!")
-        get_drink()
+    while choice not in beverage.keys():
+        print(f"Sorry. {choice.capitalize()} not available!")
+        choice = input("What would you like? (cappuccino/espresso/latte): ").lower()
+        if choice == 'q':
+            print("Goodbye")
+            return
 
-get_drink()
+    return choice
+
+
+def check_resource(drink):
+    print(f"You chose {drink}")
+
+
+def main():
+    user_drink = get_drink()
+    check_resource(drink=user_drink)
+
+
+if __name__ == "__main__":
+    main()
