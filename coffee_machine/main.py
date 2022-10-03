@@ -12,3 +12,4 @@ def get_drink() -> str:
         print(f"Sorry. {prompt.capitalize()} not available!")
         get_drink()
 
+get_drink()
