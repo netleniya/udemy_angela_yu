@@ -34,13 +34,13 @@ class CoffeeMaker:
                 if water > self.water:
                     print("Sorry there seems to be insufficient water")
                 elif milk > self.milk:
-                    print("Sorry there is not enough nsufficient milk")
+                    print("Sorry there is not enough insufficient milk")
                 elif coffee > self.coffee:
                     print("Sorry, insufficient coffee")
                 return self.water >= water and self.milk >= milk and self.coffee >= coffee
 
             if check_resource(self):
-                print(f"Brewing a delicous {self.drink.capitalize()}...")
+                print(f"Brewing a delicious {self.drink.capitalize()}...")
                 self.water -= water
                 self.milk -= milk
                 self.coffee -= coffee
@@ -53,10 +53,10 @@ class CoffeeMaker:
         """get a status report on resource and money levels in machine
         """
         resource_levels = (
-        "\nCoffee Maker Resource Levels:\n"
-        f"Water : {self.water}ml\n"
-        f"Milk  : {self.milk}ml\n"
-        f"Coffee: {self.coffee}g\n"
-        f"Money : ${self.funds:.2f}")
+            "\nCoffee Maker Resource Levels:\n"
+            f"Water : {self.water}ml\n"
+            f"Milk  : {self.milk}ml\n"
+            f"Coffee: {self.coffee}g\n"
+            f"Money : ${self.funds:.2f}")
 
         print(resource_levels)

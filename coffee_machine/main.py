@@ -2,6 +2,7 @@ from brewer import CoffeeMaker
 from properties import beverage, coins
 import sys
 
+
 def get_choice() -> str:
     """get choice of drink from user input
 
@@ -31,7 +32,7 @@ def insert_coins() -> float:
     dimes = int(input("How many dimes: "))
     nickels = int(input("How many nickels: "))
 
-    total = quarters * coins.get('quarters') + dimes * coins.get('dimes') + nickels * coins.get('nickles')
+    total += quarters * coins.get('quarters') + dimes * coins.get('dimes') + nickels * coins.get('nickles')
     return total
 
 
